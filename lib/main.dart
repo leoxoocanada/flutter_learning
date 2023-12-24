@@ -11,14 +11,183 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: TabBoxA(),
+      initialRoute: 'default',
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      // routes: {
+      //   'default': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+      //   'new': (context) => TipRoute(text: 'aaaaa',),
+      // },
+      home: MyHomePage(title: 'xxxx'),
     );
   }
 }
+
+class MyHomePage extends StatefulWidget {
+  MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String title;
+
+  @override
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(20),
+        child: ButtonDemo(),
+      ),
+    );
+  }
+}
+class ButtonDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Column(children: [
+          ElevatedButton(
+            child: Text('点赞'),
+            onPressed: () {
+              print('xxxxx');
+            }
+          ),
+          TextButton(
+            child: Text('点赞'),
+            onPressed: () {
+              print('xxxxx');
+            }
+          ),
+          OutlinedButton(
+            child: Text('点赞'),
+            onPressed: () {
+              print('xxxxx');
+            }
+          ),
+          IconButton(
+            icon: Icon(Icons.thumb_up),
+            onPressed: () {
+              print('xxxxx');
+            }
+          ),
+          ElevatedButton.icon(
+            icon: Icon(Icons.thumb_up),
+            label: Text('点赞'),
+            onPressed: () {
+              print('xxxxx');
+            }
+          ),
+          TextButton.icon(
+            icon: Icon(Icons.thumb_up),
+            label: Text('点赞'),
+            onPressed: () {
+              print('xxxxx');
+            }
+          ),
+          OutlinedButton.icon(
+            icon: Icon(Icons.thumb_up),
+            label: Text('点赞'),
+            onPressed: () {
+              print('xxxxx');
+            }
+          ),
+        ],)
+      );
+  }
+}
+// class _MyHomePageState extends State<MyHomePage> {
+//   int _counter = 0;
+
+//   void _incrementCounter() {
+//     setState(() {
+//       _counter++;
+//     });
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text(widget.title),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             Text('You have pushed the button this many times:'),
+//             Text(
+//               '$_counter',
+//               style: Theme.of(context).textTheme.headline4,
+//             ),
+//             TextButton(
+//               child: Text('open new route'),
+//               onPressed: () async {
+//                 Navigator.pushNamed(context, 'new');
+//                 // Navigator.push(context, MaterialPageRoute(builder: (context) => NewRoute()));
+//                 // var result = await Navigator.push(
+//                 //     context,
+//                 //     MaterialPageRoute(
+//                 //         builder: (context) => TipRoute(text: 'xxxxx')));
+//                 // print('路由返回值:$result');
+//               },
+//             )
+//           ],
+//         ),
+//       ),
+//       floatingActionButton: FloatingActionButton(
+//         onPressed: _incrementCounter,
+//         tooltip: 'Increment',
+//         child: Icon(Icons.add),
+//       ), // This trailing comma makes auto-formatting nicer for build methods.
+//     );
+//   }
+// }
+
+// class TipRoute extends StatelessWidget {
+//   const TipRoute({Key? key, required this.text}) : super(key: key);
+
+//   final String text;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//         appBar: AppBar(
+//           title: Text('提示'),
+//         ),
+//         body: Padding(
+//             padding: EdgeInsets.all(18),
+//             child: Center(
+//                 child: Column(children: [
+//               Text(text),
+//               ElevatedButton(
+//                 onPressed: () => Navigator.pop(context, '我是返回值'),
+//                 child: Text('返回'),
+//               )
+//             ]))));
+//   }
+// }
+
+// class NewRoute extends StatelessWidget {
+//   const NewRoute({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('New Route'),
+//       ),
+//       body: Center(
+//         child: Text('This is new route'),
+//       )
+//     );
+//   }
+// }
 
 // class CounterWidget extends StatefulWidget {
 //   final int initValue;
@@ -81,18 +250,6 @@ class MyApp extends StatelessWidget {
 //   }
 // }
 
-// class MyHomePage extends StatefulWidget {
-//   @override
-//   State<MyHomePage> createState() => _MyHomePageState();
-// }
-
-// class _MyHomePageState extends State<MyHomePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return const Echo(text: 'XXXX', backgroundColor: Colors.deepOrange,);
-//   }
-// }
-
 
 // class Echo extends StatelessWidget {
 //   const Echo({ Key? key, required this.text, this.backgroundColor = Colors.grey }): super(key: key);
@@ -115,39 +272,39 @@ class MyApp extends StatelessWidget {
 //   }
 // }
 
-class TabBoxA extends StatefulWidget {
-  const TabBoxA({Key? key}) : super(key: key);
+// class TabBoxA extends StatefulWidget {
+//   const TabBoxA({Key? key}) : super(key: key);
 
-  @override
-  _TabBoxAState createState() => _TabBoxAState();
-}
+//   @override
+//   _TabBoxAState createState() => _TabBoxAState();
+// }
 
-class _TabBoxAState extends State {
-  bool _active = false;
+// class _TabBoxAState extends State {
+//   bool _active = false;
 
-  void _handleTap() {
-    setState(() {
-      _active = !_active;
-    });
-  }
+//   void _handleTap() {
+//     setState(() {
+//       _active = !_active;
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: _handleTap,
-      child: Container(
-        width: 200,
-        height: 200,
-        decoration: BoxDecoration(
-          color: _active ? Colors.lightGreen[700] : Colors.grey[600],
-        ),
-        child: Center(
-          child: Text(
-            _active ? 'Active' : 'Inactive',
-            style: const TextStyle(fontSize: 32.0, color: Colors.white),
-          )
-        )
-      )
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: _handleTap,
+//       child: Container(
+//         width: 200,
+//         height: 200,
+//         decoration: BoxDecoration(
+//           color: _active ? Colors.lightGreen[700] : Colors.grey[600],
+//         ),
+//         child: Center(
+//           child: Text(
+//             _active ? 'Active' : 'Inactive',
+//             style: const TextStyle(fontSize: 32.0, color: Colors.white),
+//           )
+//         )
+//       )
+//     );
+//   }
+// }
