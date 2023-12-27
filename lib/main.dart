@@ -4,6 +4,7 @@ import './RouteDemo.dart';
 import './ButtonDemo.dart';
 import './ImageDemo.dart';
 import './FormDemo.dart';
+import './ProgressDemo.dart';
 
 void main() {
   // runApp(const RouteDemo());
@@ -43,7 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // child: CounterDemo(),
         // child: ButtonDemo(),
         // child: ImageDemo(),
-        child: FormDemo(),
+        // child: FormDemo(),
+        child: ProgressDemo(),
       ),
     );
   }
