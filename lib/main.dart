@@ -10,7 +10,8 @@ import 'package:flutter/material.dart';
 // import 'flex_demo.dart';
 // import 'flow_demo.dart';
 // import 'stack_demo.dart';
-import 'align_cemo.dart';
+// import 'align_demo.dart';
+import 'container_demo.dart';
 
 void main() {
   // runApp(const RouteDemo());
@@ -57,7 +58,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // child: FlexDemo(),
         // child: FlowDemo(),
         // child: StackDemo(),
-        child: AlignDemo(),
+        // child: AlignDemo(),
+        child: ContainerDemo(),
       ),
     );
   }
