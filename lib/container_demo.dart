@@ -125,42 +125,208 @@ class ContainerDemo extends StatelessWidget {
         //   ],
         // ),
 
-        Transform.translate(
-          offset: Offset(100, 100),
-          child: Container(
-            color: Colors.green,
-            width: 300,
-            height: 30,
-          ),
-        ),
-        Transform.scale(
-          scale: 2,
-          child: const Text('wwwwwwwwwwwwww'),
+        // Transform.translate(
+        //   offset: Offset(100, 100),
+        //   child: Container(
+        //     color: Colors.green,
+        //     width: 300,
+        //     height: 30,
+        //   ),
+        // ),
+        // Transform.scale(
+        //   scale: 2,
+        //   child: const Text('wwwwwwwwwwwwww'),
+        // ),
+
+        // Row(
+        //   children: [
+        //     DecoratedBox(
+        //       decoration: const BoxDecoration(
+        //         color: Colors.blue,
+        //       ),
+        //       child: Transform.rotate(
+        //         angle: pi / 2,
+        //         child: const Text('xxxxxxxxxxxxxx'),
+        //       ),
+        //     ),
+        //     const DecoratedBox(
+        //       decoration: BoxDecoration(
+        //         color: Colors.blue,
+        //       ),
+        //       child: RotatedBox(
+        //         quarterTurns: 1,
+        //         child: Text('uuuuuuuuuuuuuuu'),
+        //       ),
+        //     ),
+        //   ],
+        // ),
+
+        // ClipOval(
+        //     child: Container(
+        //   width: 50,
+        //   height: 50,
+        //   color: Colors.green,
+        // )),
+        // ClipOval(
+        //     child: Container(
+        //   width: 200,
+        //   height: 50,
+        //   color: Colors.green,
+        // )),
+        // ClipRRect(
+        //     borderRadius: BorderRadius.circular(10),
+        //     child: Container(
+        //       width: 400,
+        //       height: 50,
+        //       color: Colors.green,
+        //     )),
+        // ClipRect(
+        //   // clipBehavior: Clip.none,
+        //   child: Container(
+        //     width: 400,
+        //     height: 50,
+        //     color: Colors.blue,
+        //     child: Transform.rotate(
+        //       angle: pi / 20,
+        //       child: const Text(
+        //         'xxxxxx',
+        //         style: TextStyle(color: Colors.red, fontSize: 50),
+        //       ),
+        //     ),
+        //   ),
+        // ),
+
+        // Container(
+        //   decoration: BoxDecoration(
+        //     color: Colors.green,
+        //   ),
+        //   width: 200,
+        //   height: 200,
+        //   child: ClipRect(
+        //     clipper: MyClipper(),
+        //     child: Container(
+        //       decoration: BoxDecoration(
+        //         image: const DecorationImage(
+        //           image: NetworkImage(
+        //             'https://gw.alicdn.com/bao/uploaded/i1/796560056/O1CN01AMAhNI1CHgjPHbBaP_!!0-item_pic.jpg_300x300q90.jpg',
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
+
+        // Container(
+        //   decoration: BoxDecoration(
+        //     color: Colors.brown,
+        //   ),
+        //   width: 200,
+        //   height: 200,
+        //   child: ClipPath(
+        //     clipper: __MyPathClipper(),
+        //     child: Container(
+        //       decoration: BoxDecoration(
+        //         image: const DecorationImage(
+        //           image: NetworkImage(
+        //             'https://gw.alicdn.com/bao/uploaded/i1/796560056/O1CN01AMAhNI1CHgjPHbBaP_!!0-item_pic.jpg_300x300q90.jpg',
+        //           ),
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
+
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 30.0),
+          child: Row(children: [Text('xx' * 60)]), //文本长度超出 Row 的最大宽度会溢出
         ),
 
-        Row(
-          children: [
-            DecoratedBox(
-              decoration: const BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Transform.rotate(
-                angle: pi / 2,
-                child: const Text('xxxxxxxxxxxxxx'),
-              ),
-            ),
-            const DecoratedBox(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: RotatedBox(
-                quarterTurns: 1,
-                child: Text('uuuuuuuuuuuuuuu'),
-              ),
-            ),
-          ],
+        Container(
+          width: 50,
+          height: 50,
+          color: Colors.red,
+          child: FittedBox(
+            // 子容器超过父容器大小
+            child: Container(width: 60, height: 70, color: Colors.blue),
+          ),
         ),
+        Divider(),
+        Container(
+          width: 50,
+          height: 50,
+          color: Colors.red,
+          child: FittedBox(
+            fit: BoxFit.none,
+            // 子容器超过父容器大小
+            child: Container(width: 60, height: 70, color: Colors.blue),
+          ),
+        ),
+        Divider(),
+        ClipRect(
+          child: Container(
+            width: 50,
+            height: 50,
+            color: Colors.red,
+            child: FittedBox(
+              fit: BoxFit.none,
+              // 子容器超过父容器大小
+              child: Container(width: 60, height: 70, color: Colors.blue),
+            ),
+          ),
+        ),
+
+        Center(
+          child: Column(
+            children: [
+              wRow(' 900000000000000009999999 '),
+              FittedBox(child: wRow(' 9000000000000000099999999999 ')),
+              wRow(' 800 '),
+              FittedBox(child: wRow(' 800 ')),
+            ]
+                .map((e) => Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      child: e,
+                    ))
+                .toList(),
+          ),
+        ),
+
+        
       ],
     );
   }
+}
+
+class MyClipper extends CustomClipper<Rect> {
+  @override
+  Rect getClip(Size size) => Rect.fromLTWH(10.0, 15.0, 100.0, 100.0);
+
+  @override
+  bool shouldReclip(CustomClipper<Rect> oldClipper) => false;
+}
+
+class __MyPathClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    var path = Path();
+    path.moveTo(size.width / 2, 0);
+    path.lineTo(0, size.height);
+    path.lineTo(size.width, size.height);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return false;
+  }
+}
+
+Widget wRow(String text) {
+  Widget child = Text(text);
+  child = Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [child, child, child],
+  );
+  return child;
 }
