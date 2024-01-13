@@ -13,7 +13,8 @@ import 'package:flutter/material.dart';
 // import 'align_demo.dart';
 // import 'container_demo.dart';
 // import 'sliver_demo.dart';
-import 'willpopscope_demo.dart';
+// import 'willpopscope_demo.dart';
+import 'inherited_widget_demo.dart';
 
 void main() {
   // runApp(const RouteDemo());
@@ -63,7 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // child: AlignDemo(),
         // child: ContainerDemo(),
         // child: SliverDemo(),
-        child: WillPopScopePage(),
+        // child: WillPopScopePage(),
+        child: InheritedWidgetTestRoute(),
       ),
     );
   }
