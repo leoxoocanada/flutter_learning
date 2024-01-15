@@ -15,9 +15,10 @@ import 'package:flutter/material.dart';
 // import 'sliver_demo.dart';
 // import 'willpopscope_demo.dart';
 // import 'inherited_widget_demo.dart';
-// import 'provider_demo.dart';
+// import 'provider_mini_demo.dart';
 // import 'builder_demo.dart';
-import 'dialog_demo.dart';
+// import 'dialog_demo.dart';
+import 'provider_demo.dart';
 
 void main() {
   // runApp(const RouteDemo());
@@ -71,7 +72,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // child: InheritedWidgetTestRoute(),
         // child: ProviderRoute(),
         // child: BuilderDemo(),
-        child: DialogDemo(),
+        // child: DialogDemo(),
+        child: ProviderDemo(),
       ),
     );
   }
