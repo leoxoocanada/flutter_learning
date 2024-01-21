@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 // import './CounterDemo.dart';
 // import './RouteDemo.dart';
 // import './ButtonDemo.dart';
@@ -18,7 +19,8 @@ import 'package:flutter/material.dart';
 // import 'provider_mini_demo.dart';
 // import 'builder_demo.dart';
 // import 'dialog_demo.dart';
-import 'provider_demo.dart';
+// import 'provider_demo.dart';
+import 'gesture_demo.dart';
 
 void main() {
   // runApp(const RouteDemo());
@@ -73,7 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
         // child: ProviderRoute(),
         // child: BuilderDemo(),
         // child: DialogDemo(),
-        child: ProviderDemo(),
+        // child: ProviderDemo(),
+        child: GestureDemo(),
       ),
     );
   }
