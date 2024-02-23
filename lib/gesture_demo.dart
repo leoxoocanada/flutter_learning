@@ -164,11 +164,11 @@ class _State extends State<GestureDemo> {
   @override
   Widget build(BuildContext context) {
     return Listener(
-      onPointerDown: (PointerDownEvent event) {
+      onPointerUp: (PointerUpEvent event) {
         print("Tap1");
       },
       child: Container(
-        color: Colors.blue,
+        color: Colors.grey,
         child: Stack(
           children: [
             Positioned(
@@ -188,16 +188,18 @@ class _State extends State<GestureDemo> {
             Positioned(
               left: 150,
               top: 150,
-              child: GestureDetector(
-                onTap: () {
-                  print("Tap3");
-                },
-                child: Container(
-                  color: Colors.green,
-                  width: 100,
-                  height: 100,
-                ),
-              )
+              child: IgnorePointer(
+                child: GestureDetector(
+                  onTap: () {
+                    print("Tap3");
+                  },
+                  child: Container(
+                    color: Colors.green,
+                    width: 100,
+                    height: 100,
+                  ),
+                )
+              ),
             ),
           ]
         ),
